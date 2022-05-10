@@ -1,10 +1,11 @@
 import React from 'react';
+import banner from '../../img/banner.jpg'
 
 
 const Home = () => {
     return (
         <div>
-            <img src="https://i.ibb.co/qnjqQs0/depositphotos-32562553-stock-photo-modern-warehouse.png" alt="banner" />
+            <img src={banner} alt="banner" />
 
         </div>
     );

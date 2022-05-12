@@ -5,7 +5,7 @@ const Product = (props) => {
     const { img, title, description, price, stock, productId } = props.proData;
     const navigate = useNavigate();
     const productDetails = props => {
-        navigate(`/productDetails/:${props}`)
+        navigate(`/productDetails/${props}`)
     }
     return (
         <div className='md:basis-1/3 mt-5'>

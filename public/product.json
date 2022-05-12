@@ -1,6 +1,6 @@
 [
     {
-        "name": "Sabbir Rahman",
+        "shipper": "Sabbir Rahman",
         "email": "sabbir@rahman4gmail.com",
         "img": "https://i.ibb.co/BnLNB76/hoodie-3.jpg",
         "title": "UCLA Boyfriend Hoodie",
@@ -10,7 +10,7 @@
         "productId": "31"
     },
     {
-        "name": "Sabbir Rahman",
+        "shipper": "Sabbir Rahman",
         "email": "sabbir@rahman4gmail.com",
         "img": "https://i.ibb.co/BLGX229/hoodie-1.jpg",
         "title": "Lovely Hoodie",
@@ -20,7 +20,7 @@
         "productId": "32"
     },
     {
-        "name": "Sabbir Rahman",
+        "shipper": "Sabbir Rahman",
         "email": "sabbir@rahman4gmail.com",
         "img": "https://i.ibb.co/6tySqcd/hoodie-2.jpg",
         "title": "Pickaberry Microfleece Zip",
@@ -30,7 +30,7 @@
         "productId": "33"
     },
     {
-        "name": "Imran Hossain",
+        "shipper": "Imran Hossain",
         "email": "imranhossain@gmail.com",
         "img": "https://i.ibb.co/WzrX9qD/pant1.jpg",
         "title": "Simple black touser",
@@ -40,7 +40,7 @@
         "productId": "34"
     },
     {
-        "name": "Sabbir Rahman",
+        "shipper": "Sabbir Rahman",
         "email": "sabbir@rahman4gmail.com",
         "img": "https://i.ibb.co/FYZFJr2/shorts1.jpg",
         "title": "Womens Stylish Casual Short pant",
@@ -50,7 +50,7 @@
         "productId": "35"
     },
     {
-        "name": "Dabid jack",
+        "shipper": "Dabid jack",
         "email": "davidjack@gmail.com",
         "img": "https://i.ibb.co/2ZJBvNc/tshirt1.jpg",
         "title": "T-shirt for vacation",

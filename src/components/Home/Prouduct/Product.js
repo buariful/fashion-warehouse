@@ -1,17 +1,21 @@
 import React from 'react';
-import SingleProduct from './SingleProduct/SingleProduct';
+import { useNavigate } from 'react-router-dom';
 
 const Product = (props) => {
-    const { name, products } = props.proData;
+    const { img, title, description, price, stock, productId } = props.proData;
+    const navigate = useNavigate();
+    const productDetails = props => {
+        navigate(`/productDetails/:${props}`)
+    }
     return (
-        <div className='md:flex items-center'>
-            <h1 className='basis-1/5 font-bold text-2xl'>
-                <span className='font-thin text-xl'>Shiper name: </span>
-                {name}</h1>
-            <div className="basis-4/5">
-                <div className='grid md:grid-cols-3 sm:grid-cols-2 gap-8 mb-5'>
-                    {products.map(product => <SingleProduct key={product.productId} product={product} shipper={name}></SingleProduct>)}
-                </div>
+        <div className='md:basis-1/3 mt-5'>
+            <div className='w-2/3 bg-orange-200 mt-10 text-left px-6 py-5 rounded-lg m-auto'>
+                <img src={img} alt="" className='mx-auto rounded-md' />
+                <h3 className='text-xl mt-4 font-semibold'>{title} </h3>
+                <p className='my-3'>{description}</p>
+                <h4 className='text-2xl font-bold'>$ {price}</h4>
+                <p className='font-semibold'>Stock : {stock}</p>
+                <button className=' bg-orange-600 rounded-md text-center text-white mt-4 py-2 w-full' onClick={() => { productDetails(productId) }}>Buy</button>
             </div>
         </div>
     );

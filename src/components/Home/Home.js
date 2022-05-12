@@ -18,8 +18,8 @@ const Home = () => {
                 <h1 className='text-center font-bold text-4xl mt-12 mb-8'> Our <span className="text-orange-500">Prouducts</span></h1>
 
                 {/* product-------- */}
-                <div>
-                    {products.map(product => <Product key={product.id} proData={product}></Product>)}
+                <div className='flex items-center flex-row flex-wrap'>
+                    {products.map(product => <Product key={product.productId} proData={product}></Product>)}
                 </div>
 
                 {/* Brand----- */}

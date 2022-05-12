@@ -7,6 +7,7 @@ const Navbar = () => {
     const iconChange = () => {
         setIcon(!icon)
     }
+
     return (
         <div className='bg-orange-500 sticky top-0'>
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../Loading';
 
 
 const Register = () => {
@@ -11,7 +12,10 @@ const Register = () => {
     const [handleError, setHandleError] = useState();
     const navigate = useNavigate();
 
-    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
+    const [createUserWithEmailAndPassword,
+        user,
+        loading,
+        error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
 
     const handleEmail = event => {
         setEmail(event.target.value)
@@ -23,7 +27,8 @@ const Register = () => {
         setConfirmPass(event.target.value)
     }
 
-    const createUser = event => {
+
+    const createUser = async event => {
         event.preventDefault();
         if (password !== confirmPass) {
             setHandleError('Please enter same password in "PASSWORD" and "CONFIRM PASSWORD field')
@@ -35,7 +40,18 @@ const Register = () => {
         }
 
 
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
+    }
+    // firebase actions
+    if (user) {
+        navigate('/home');
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    if (error) {
+        return <h2 className='text-2xl font-bold min-h-screen flex justify-center items-center text-red-500'> <span> {error.message}</span></h2>
 
     }
     return (

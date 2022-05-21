@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Navbar = () => {
     const [icon, setIcon] = useState(true);
     const iconChange = () => {
         setIcon(!icon)
     }
+
 
     return (
         <div className='bg-orange-500 sticky top-0'>

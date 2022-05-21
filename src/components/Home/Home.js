@@ -1,16 +1,33 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import './Home.css';
 import Product from './Prouduct/Product';
 
 
 const Home = () => {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetch('product.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    })
 
+    const [products, setProducts] = useState([]);
+    const [totalProducts, setTotalProducts] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => setTotalProducts(data))
+    }, [])
+    useEffect(() => {
+        setProducts([...totalProducts.slice(0, 6)])
+    }, [totalProducts])
+
+    // button set
+    const [button, setButton] = useState(false);
+    const seeAllProducts = () => {
+        setProducts([...totalProducts])
+        setButton(!button)
+    }
+
+    const closeProducts = () => {
+        setProducts([...totalProducts.slice(0, 6)])
+        setButton(!button)
+    }
     return (
         <div >
             <div className='banner'></div>
@@ -19,8 +36,10 @@ const Home = () => {
 
                 {/* product-------- */}
                 <div className='flex items-center flex-row flex-wrap'>
-                    {products.map(product => <Product key={product.productId} proData={product}></Product>)}
+                    {products?.map(product => <Product key={product.productId} proData={product}></Product>)}
                 </div>
+
+                {button ? <button className="btn btn-primary mt-5" onClick={closeProducts}>See less</button> : <button className="btn btn-primary mt-5" onClick={seeAllProducts}>See More</button>}
 
                 {/* Brand----- */}
                 <h1 className='text-center font-bold text-4xl mt-12 mb-8'> Our <span className="text-orange-500">Brands</span></h1>

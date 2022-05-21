@@ -8,6 +8,7 @@ import Register from './components/Pages/Register/Register';
 import Login from './components/Pages/Login/Login';
 import Notfound from './components/Pages/Notfound/Notfound';
 import ProductDeatail from './components/ProductDetails/ProductDeatail';
+import RequireAuth from './components/RequireAuth/RequireAuth';
 
 function App() {
   return (

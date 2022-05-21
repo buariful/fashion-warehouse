@@ -51,7 +51,10 @@ const Register = () => {
     }
 
     if (error) {
-        return <h2 className='text-2xl font-bold min-h-screen flex justify-center items-center text-red-500'> <span> {error.message}</span></h2>
+        return <div className='min-h-screen flex justify-center items-center '>
+            <h2 className='text-2xl font-bold text-red-500'> <span> {error.message}</span></h2>
+            <Link to='/home' className='font-bol mt-5 ml-3 bg-primary text-white py-3 px-3 rounded-md hover:bg-gray-800'>Home</Link>
+        </div>
 
     }
     return (

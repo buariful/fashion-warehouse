@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import Loading from '../Loading';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [
         signInWithEmailAndPassword,
         user,
@@ -12,9 +14,21 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     const handleSubmit = event => {
         event.preventDefault();
-        let email = event.target.email.value;
+        const email = event.target.email.value;
         const password = event.target.password.value;
-
+        signInWithEmailAndPassword(email, password)
+    }
+    if (user) {
+        navigate('/home')
+    }
+    if (loading) {
+        return <Loading></Loading>
+    }
+    if (error) {
+        return <div className='min-h-screen flex justify-center items-center '>
+            <h2 className='text-2xl font-bold text-red-500'> <span> {error.message}</span></h2>
+            <Link to='/home' className='font-bol mt-5 ml-3 bg-primary text-white py-3 px-3 rounded-md hover:bg-gray-800'>Home</Link>
+        </div>
     }
     return (
         <div className='text-center'>

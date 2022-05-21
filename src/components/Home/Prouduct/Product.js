@@ -21,6 +21,7 @@ const Product = (props) => {
                 <p className='font-semibold'>Stock : {stock}</p>
                 <small>Shipper : {shipper}</small>
                 <button className=' bg-orange-600 rounded-md text-center text-white mt-4 py-2 w-full' onClick={() => { productDetails(productId) }}>Update</button>
+
             </div>
         </div>
     );

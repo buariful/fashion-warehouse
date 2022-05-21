@@ -20,7 +20,13 @@ function App() {
         <Route path='/blog' element={<Blog />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/login' element={<Login />}></Route>
-        <Route path='/productdetails/:details' element={<ProductDeatail />}></Route>
+
+        <Route path='/productdetails/:details' element={
+          <RequireAuth>
+            <ProductDeatail />
+          </RequireAuth>
+        } />
+
         <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
       <Footer></Footer>

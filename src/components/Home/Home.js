@@ -9,7 +9,7 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const [totalProducts, setTotalProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://desolate-reef-98176.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setTotalProducts(data))
     }, [])

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../Loading';
 
@@ -18,9 +18,14 @@ const Login = () => {
         const password = event.target.password.value;
         signInWithEmailAndPassword(email, password)
     }
-    if (user) {
-        navigate('/home')
-    }
+    // login action
+    const location = useLocation();
+    let from = location.state?.from?.pathname || '/productdetails/:details';
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, from, navigate])
     if (loading) {
         return <Loading></Loading>
     }

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 const ProductDeatail = () => {
     const { details } = useParams();
     const { isLoading, data } = useQuery('repoData', () =>
-        fetch('http://localhost:5000/products').then(res =>
+        fetch('https://desolate-reef-98176.herokuapp.com/products').then(res =>
             res.json()
         )
     )

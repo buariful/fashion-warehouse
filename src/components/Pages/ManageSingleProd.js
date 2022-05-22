@@ -16,7 +16,7 @@ const ManageSingleProd = ({ product }) => {
             productId: props.productId
         }
         if (confirm) {
-            fetch(`http://https://desolate-reef-98176.herokuapp.com/delete`, {
+            fetch(`https://desolate-reef-98176.herokuapp.com/delete`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'

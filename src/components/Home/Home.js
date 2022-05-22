@@ -45,7 +45,7 @@ const Home = () => {
 
                 {button ? <button className="btn btn-primary mt-5" onClick={closeProducts}>See less</button> : <button className="btn btn-primary mt-5" onClick={seeAllProducts}>See More</button>}
 
-                {user && <Link to='/allproducts' className="btn btn-primary mt-5 ml-4">Manage products</Link>}
+                {user && <Link to='/manage-products' className="btn btn-primary mt-5 ml-4">Manage products</Link>}
 
                 {/* Brand----- */}
                 <h1 className='text-center font-bold text-4xl mt-12 mb-8'> Our <span className="text-orange-500">Brands</span></h1>

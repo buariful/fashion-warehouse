@@ -54,7 +54,7 @@ const ManageSingleProd = ({ product, refetch, countProducts }) => {
         <tbody>
 
             <tr>
-                <th>
+                <th className='hidden sm:inline-block'>
 
                 </th>
                 <td>
@@ -67,7 +67,7 @@ const ManageSingleProd = ({ product, refetch, countProducts }) => {
 
                     </div>
                 </td>
-                <td>
+                <td className='hidden sm:inline-block'>
                     {product.title}
                     <br />
                     <span className="badge badge-ghost badge-sm">{product.shipper}</span>

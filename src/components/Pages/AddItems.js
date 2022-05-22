@@ -43,7 +43,7 @@ const AddItems = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
-        await navigate('/home');
+
     }
     return (
         <div>

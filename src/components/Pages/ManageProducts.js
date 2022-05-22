@@ -20,7 +20,7 @@ const ManageProducts = () => {
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th ></th>
                             <th></th>
                             <th>Product - Shipper</th>
                             <th>Stock</th>

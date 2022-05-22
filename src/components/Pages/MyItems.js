@@ -17,7 +17,7 @@ const MyItems = () => {
     const myProducts = data.filter(data => data.email === user.email);
 
     return (
-        <div className="overflow-x-auto w-full">
+        <div className="overflow-x-auto sm:w-11/12">
             <table className="table w-full">
                 {/* <!-- head --> */}
                 <thead>

@@ -21,7 +21,7 @@ const AddItems = () => {
     const largestId = Math.max(...productId);
     const newProductId = largestId + 1;
 
-    const handleAddProduct = event => {
+    const handleAddProduct = async event => {
         event.preventDefault();
 
         const newProduct = {
@@ -43,7 +43,7 @@ const AddItems = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
-        navigate('/home');
+        await navigate('/home');
     }
     return (
         <div>
@@ -58,7 +58,7 @@ const AddItems = () => {
                 <div className="form-control my-4">
                     <label className="input-group input-group-md justify-center w-full mx-auto">
                         <span>Email</span>
-                        <input type="text" placeholder={user.email} disabled className="input input-bordered input-md focus:outline-none w-8/12" name='email' />
+                        <input type="text" value={user.email} disabled className="input input-bordered input-md focus:outline-none w-8/12" name='email' />
                     </label>
                 </div>
                 <div className="form-control my-4">

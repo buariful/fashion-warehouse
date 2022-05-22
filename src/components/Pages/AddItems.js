@@ -43,7 +43,7 @@ const AddItems = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
-
+        navigate('/home')
     }
     return (
         <div>
@@ -52,25 +52,25 @@ const AddItems = () => {
                 <div className="form-control my-4">
                     <label className="input-group input-group-md justify-center w-full mx-auto">
                         <span>Shipper</span>
-                        <input type="text" placeholder='Shipper name' className="input input-bordered input-md focus:outline-none w-8/12" name='shipper' />
+                        <input required type="text" placeholder='Shipper name' className="input input-bordered input-md focus:outline-none w-8/12" name='shipper' />
                     </label>
                 </div>
                 <div className="form-control my-4">
                     <label className="input-group input-group-md justify-center w-full mx-auto">
                         <span>Email</span>
-                        <input type="text" value={user.email} disabled className="input input-bordered input-md focus:outline-none w-8/12" name='email' />
+                        <input required type="text" value={user.email} disabled className="input input-bordered input-md focus:outline-none w-8/12" name='email' />
                     </label>
                 </div>
                 <div className="form-control my-4">
                     <label className="input-group input-group-md justify-center w-full mx-auto">
                         <span>Image</span>
-                        <input type="text" placeholder="paste 292x292 img online url" className="input input-bordered input-md focus:outline-none w-8/12" name='img' />
+                        <input required type="text" placeholder="paste 292x292 img online url" className="input input-bordered input-md focus:outline-none w-8/12" name='img' />
                     </label>
                 </div>
                 <div className="form-control my-4">
                     <label className="input-group input-group-md justify-center w-full mx-auto">
                         <span>Title</span>
-                        <input type="text" placeholder="Product title" className="input input-bordered input-md focus:outline-none w-8/12" name='title' />
+                        <input required type="text" placeholder="Product title" className="input input-bordered input-md focus:outline-none w-8/12" name='title' />
                     </label>
                 </div>
                 <div className="form-control my-4">
@@ -82,13 +82,13 @@ const AddItems = () => {
                 <div className="form-control my-4">
                     <label className="input-group input-group-md justify-center w-full mx-auto">
                         <span>Price</span>
-                        <input type="number" placeholder="$ product price" className="input input-bordered input-md focus:outline-none w-8/12" name='price' />
+                        <input required type="number" placeholder="$ product price" className="input input-bordered input-md focus:outline-none w-8/12" name='price' />
                     </label>
                 </div>
                 <div className="form-control my-4">
                     <label className="input-group input-group-md justify-center w-full mx-auto">
                         <span>Stock</span>
-                        <input type="number" placeholder="stock" className="input input-bordered input-md focus:outline-none w-8/12" name='stock' />
+                        <input required type="number" placeholder="stock" className="input input-bordered input-md focus:outline-none w-8/12" name='stock' />
                     </label>
                 </div>
                 <div className="form-control my-4">

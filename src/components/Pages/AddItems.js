@@ -34,7 +34,7 @@ const AddItems = () => {
             stock: event.target.stock.value,
             productId: event.target.productId.value,
         }
-        fetch(`http://localhost:5000/upload`, {
+        fetch(`https:/desolate-reef-98176.herokuapp.com/upload`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

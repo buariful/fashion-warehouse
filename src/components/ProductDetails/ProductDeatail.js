@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
 const ProductDeatail = () => {
+
     const { details } = useParams();
     const { isLoading, data } = useQuery('repoData', () =>
         fetch('https://desolate-reef-98176.herokuapp.com/products').then(res =>
@@ -15,8 +16,7 @@ const ProductDeatail = () => {
     }
     const product = data.find(data => data.productId === details);
 
-    console.log(product)
-
+    console.log(product.stock + 1)
     return (
         <div>
             <h1 className='font-bold text-3xl mt-6'>Details of your choosen product. {product.title} </h1>
@@ -34,13 +34,13 @@ const ProductDeatail = () => {
                 </div>
             </div>
             <div className='lg:w-8/12 mx-auto bg-base-200 py-4 px-5'>
-                <div class="form-control w-full max-w-xs">
-                    <label class="label">
-                        <span class="label-text">Increase {product.title} quantity</span>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Increase {product.title} quantity</span>
                     </label>
                     <div className="flex w-full justify-between">
 
-                        <input type="number" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                        <input type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         <button className='btn btn-primary'>Increase</button>
                     </div>
                 </div>

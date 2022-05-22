@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import './Home.css';
 import Product from './Prouduct/Product';
 
 
 const Home = () => {
 
+    const [user] = useAuthState(auth);
     const [products, setProducts] = useState([]);
     const [totalProducts, setTotalProducts] = useState([]);
     useEffect(() => {
@@ -40,6 +44,8 @@ const Home = () => {
                 </div>
 
                 {button ? <button className="btn btn-primary mt-5" onClick={closeProducts}>See less</button> : <button className="btn btn-primary mt-5" onClick={seeAllProducts}>See More</button>}
+
+                {user && <Link to='/allproducts' className="btn btn-primary mt-5 ml-4">Manage products</Link>}
 
                 {/* Brand----- */}
                 <h1 className='text-center font-bold text-4xl mt-12 mb-8'> Our <span className="text-orange-500">Brands</span></h1>

@@ -93,7 +93,7 @@ const AddItems = () => {
                 </div>
                 <div className="form-control my-4">
                     <label className="input-group input-group-md justify-center w-full mx-auto">
-                        <span>MD</span>
+                        <span>Product Id</span>
                         <input type="text" placeholder={newProductId} disabled className="input input-bordered input-md focus:outline-none w-8/12" name='productId' value={newProductId} />
                     </label>
                 </div>

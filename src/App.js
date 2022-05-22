@@ -10,6 +10,8 @@ import Notfound from './components/Pages/Notfound/Notfound';
 import ProductDeatail from './components/ProductDetails/ProductDeatail';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import ManageProducts from './components/Pages/ManageProducts';
+import MyItems from './components/Pages/MyItems';
+import AddItems from './components/Pages/AddItems';
 
 function App() {
   return (
@@ -30,6 +32,18 @@ function App() {
         <Route path='/manage-products' element={
           <RequireAuth>
             <ManageProducts />
+          </RequireAuth>
+        } />
+
+        <Route path='/my-items' element={
+          <RequireAuth>
+            <MyItems />
+          </RequireAuth>
+        } />
+
+        <Route path='/add-items' element={
+          <RequireAuth>
+            <AddItems />
           </RequireAuth>
         } />
 

@@ -28,7 +28,12 @@ const Navbar = () => {
                     <div className='md:flex'>
                         <Link to='/home' className='block py-8 text-white ml-3 md:ml-5 font-semibold'>Home</Link>
                         <Link to='/Blog' className='block py-8 text-white ml-3 md:ml-5 font-semibold'>Blog</Link>
+
                         {user && <Link to='/manage-products' className='block py-8 text-white ml-3 md:ml-5 font-semibold'>Manage products</Link>}
+
+                        {user && <Link to='/my-items' className='block py-8 text-white ml-3 md:ml-5 font-semibold'>My items</Link>}
+
+                        {user && <Link to='/add-items' className='block py-8 text-white ml-3 md:ml-5 font-semibold'>Add items</Link>}
 
                         {user ? <button className="btn my-6 bg-gray-700 text-white ml-3 md:ml-5 font-semibold" onClick={logout}>Sign Out</button> : <Link to='/login' className='block py-8 text-white ml-3 md:ml-5 font-semibold'>Login</Link>}
 

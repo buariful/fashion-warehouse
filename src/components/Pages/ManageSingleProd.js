@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TrashIcon } from '@heroicons/react/solid'
+import { useQuery } from 'react-query';
+import Loading from './Loading';
 
-const ManageSingleProd = ({ product }) => {
+const ManageSingleProd = ({ product, refetch, countProducts }) => {
 
+    const errorBtn = () => {
+        window.alert('Minium 8 products need to delete a product')
+    }
     const handleDelete = (props) => {
         const confirm = window.confirm(`R you sure to delete ${props.title}`)
+
+
         const propsProduct = {
             shipper: props.shipper,
             email: props.email,
@@ -37,6 +44,8 @@ const ManageSingleProd = ({ product }) => {
         //         .then(res => res.json())
         //         .then(data => console.log(data))
         // }
+        // refetch data of manageproducts data
+        refetch()
     }
 
     return (
@@ -66,8 +75,8 @@ const ManageSingleProd = ({ product }) => {
                 <td>{product.stock}</td>
                 <td>$ {product.price}</td>
                 <th>
-                    <TrashIcon className="h-5 w-5 text-accent cursor-pointer" onClick={() => { handleDelete(product) }} />
 
+                    {countProducts >= 8 ? <TrashIcon className="h-5 w-5 text-accent cursor-pointer" onClick={() => { handleDelete(product) }} /> : <TrashIcon className="h-5 w-5 text-accent cursor-pointer" onClick={errorBtn} />}
 
                 </th>
 
@@ -95,3 +104,4 @@ export default ManageSingleProd;
 //         <img src={product.img} alt={product.title} />
 //     </div>
 // </div>
+// <button className="btn btn-disabled" tabIndex="-1" role="button" aria-disabled="true"><TrashIcon className="h-5 w-5 text-accent cursor-pointer" onClick={errorBtn}

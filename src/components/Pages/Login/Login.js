@@ -20,7 +20,7 @@ const Login = () => {
     }
     // login action
     const location = useLocation();
-    let from = location.state?.from?.pathname || '/productdetails/:details';
+    let from = location.state?.from?.pathname || '/home';
     useEffect(() => {
         if (user) {
             navigate(from, { replace: true });

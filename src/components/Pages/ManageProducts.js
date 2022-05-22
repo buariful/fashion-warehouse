@@ -4,11 +4,12 @@ import ManageSingleProd from './ManageSingleProd';
 import Loading from './Loading';
 
 const ManageProducts = () => {
-    const { isLoading, data } = useQuery('repoData', () =>
+    const { isLoading, data, refetch } = useQuery('repoData', () =>
         fetch('https://desolate-reef-98176.herokuapp.com/products').then(res =>
             res.json()
         )
     )
+    const countProducts = data?.length;
     if (isLoading) {
         return <Loading></Loading>;
     }
@@ -28,7 +29,7 @@ const ManageProducts = () => {
                         </tr>
                     </thead>
 
-                    {data.map(data => <ManageSingleProd product={data} key={data._id}></ManageSingleProd>)}
+                    {data.map(data => <ManageSingleProd product={data} key={data._id} refetch={refetch} countProducts={countProducts}></ManageSingleProd>)}
                     <tfoot>
                         <tr>
                             <th></th>

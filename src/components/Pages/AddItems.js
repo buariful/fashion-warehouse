@@ -43,7 +43,7 @@ const AddItems = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
-        navigate('/home')
+
     }
     return (
         <div>

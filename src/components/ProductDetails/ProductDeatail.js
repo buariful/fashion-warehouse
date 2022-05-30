@@ -31,7 +31,7 @@ const ProductDeatail = () => {
 
         }
 
-        fetch(`http://localhost:5000/update/${product.productId}`, {
+        fetch(`https://desolate-reef-98176.herokuapp.com/update/${product.productId}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

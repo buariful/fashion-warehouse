@@ -34,7 +34,7 @@ const ManageSingleProd = ({ product, refetch, countProducts }) => {
                 .then(data => console.log(data))
         }
         // if (confirm) {
-        //     fetch(`http://localhost:5000/abc`, {
+        //     fetch(`https://desolate-reef-98176.herokuapp.com/abc`, {
         //         method: 'POST',
         //         headers: {
         //             'content-type': 'application/json'

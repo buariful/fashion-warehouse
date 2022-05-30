@@ -6,7 +6,7 @@ import Loading from './Loading';
 const ManageSingleProd = ({ product, refetch, countProducts }) => {
 
     const errorBtn = () => {
-        window.alert('Minium 8 products need to delete a product')
+        window.alert('Minimum 8 products need to delete a product')
     }
     const handleDelete = (props) => {
         const confirm = window.confirm(`R you sure to delete ${props.title}`)

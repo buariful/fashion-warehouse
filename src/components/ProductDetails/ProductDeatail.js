@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ProductDeatail = () => {
-    const [productDetails, setProductDetails] = useState([])
+    const [increaseQuantity, setIncreaseQuantity] = useState('')
     const { details } = useParams();
     const { isLoading, data, refetch } = useQuery('repoData', () =>
         fetch('https://desolate-reef-98176.herokuapp.com/products').then(res =>
@@ -11,45 +11,42 @@ const ProductDeatail = () => {
         )
     )
 
-
     if (isLoading) {
         return <button className="btn loading" > loading</button >
     }
     const product = data.find(data => data.productId === details);
 
-    // =============================================================
-    // =============================================================
-    // ekhane kaj baki ase .chaile ei section delete kore dite paro...f
-    // prothome procuct delete korbo bd theke . then stock quantity baraya post korbo
-    const handleDeliver = () => {
-        const deleteCurrentProduct = () => {
-            const productInfo = {
-                shipper: product.shipper,
-                email: product.email,
-                img: product.img,
-                title: product.title,
-                description: product.description,
-                price: product.price,
-                stock: product.stock,
-                productId: product.productId
-            }
-            fetch(`https://desolate-reef-98176.herokuapp.com/delete`, {
-                method: 'DELETE',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(productInfo),
-            })
-                .then(res => res.json())
-                .then(data => setProductDetails(data))
+    const deliveredStock = parseInt(product.stock) - 1;
+
+    const handleDeliver = (quantity) => {
+        const updateProduct = {
+            description: product.description,
+            email: product.email,
+            img: product.img,
+            price: product.price,
+            productId: product.productId,
+            shipper: product.shipper,
+            stock: quantity,
+            title: product.title,
 
         }
 
-
+        fetch(`http://localhost:5000/update/${product.productId}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(updateProduct),
+        })
+        refetch()
     }
-    // ============================================
-    // ============================================
-    // console.log(parseInt(product.stock) + 1)
+    const handelIncreaseQuantity = (event) => {
+        event.preventDefault();
+        const increasingQuantity = parseInt(increaseQuantity) + parseInt(product.stock);
+        handleDeliver(increasingQuantity);
+        setIncreaseQuantity('')
+        refetch()
+    }
     return (
         <div>
             <h1 className='font-bold text-3xl mt-6'>Details of your choosen product. {product.title} </h1>
@@ -62,7 +59,7 @@ const ProductDeatail = () => {
                         <h3>Shipper : <span className='font-semibold text-primary'>{product.shipper}</span></h3>
                         <h2 className='text-xl'>Stock : <span className='font-bold'>{product.stock}</span></h2>
                         <h1>Price : <span className='text-4xl font-bold'>$ {product.price}</span></h1>
-                        <button className='btn btn-primary mt-5' onClick={handleDeliver}>Delivered</button>
+                        <button className='btn btn-primary mt-5' onClick={() => { handleDeliver(deliveredStock) }}>Delivered</button>
                     </div>
                 </div>
             </div>
@@ -73,12 +70,16 @@ const ProductDeatail = () => {
                     </label>
                     <div className="flex w-full justify-between">
 
-                        <input type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-                        <button className='btn btn-primary'>Increase</button>
+                        <form onSubmit={handelIncreaseQuantity}>
+                            <input type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" name='quantity' onChange={event => setIncreaseQuantity(event.target.value)}
+                                value={increaseQuantity}
+                            />
+                            <input type="submit" value="Increase" className='btn btn-primary' />
+                        </form>
                     </div>
                 </div>
             </div>
-            <button className='btn btn-primary my-5'>Manage my Items</button>
+            <Link to='/my-items' className='btn btn-primary my-5'>Manage my Items</Link>
         </div>
     );
 };

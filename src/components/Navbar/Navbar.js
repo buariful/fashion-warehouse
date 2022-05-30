@@ -17,7 +17,7 @@ const Navbar = () => {
         signOut(auth);
     };
     return (
-        <div className='bg-orange-500 sticky top-0'>
+        <div className='bg-orange-500 sticky top-0 z-20'>
 
             <div className="w-11/12 mx-auto" >
                 {icon ? <MenuIcon className='w-10 md:hidden cursor-pointer' onClick={iconChange}></MenuIcon> : <XIcon className='w-10 md:hidden cursor-pointer' onClick={iconChange}></XIcon>}

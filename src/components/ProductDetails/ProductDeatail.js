@@ -6,7 +6,7 @@ const ProductDeatail = () => {
     const [increaseQuantity, setIncreaseQuantity] = useState('')
     const { details } = useParams();
     const { isLoading, data, refetch } = useQuery('repoData', () =>
-        fetch('https://desolate-reef-98176.herokuapp.com/products').then(res =>
+        fetch('https://fashion-warehouse-server.onrender.com/products').then(res =>
             res.json()
         )
     )
@@ -31,7 +31,7 @@ const ProductDeatail = () => {
 
         }
 
-        fetch(`https://desolate-reef-98176.herokuapp.com/update/${product.productId}`, {
+        fetch(`https://fashion-warehouse-server.onrender.com/update/${product.productId}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

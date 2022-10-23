@@ -8,7 +8,7 @@ import ManageSingleProd from './ManageSingleProd';
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch('https://desolate-reef-98176.herokuapp.com/products').then(res =>
+        fetch('https://fashion-warehouse-server.onrender.com/products').then(res =>
             res.json()
         )
     )

@@ -23,7 +23,7 @@ const ManageSingleProd = ({ product, refetch, countProducts }) => {
             productId: props.productId
         }
         if (confirm) {
-            fetch(`https://desolate-reef-98176.herokuapp.com/delete`, {
+            fetch(`https://fashion-warehouse-server.onrender.com/delete`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json'
@@ -34,7 +34,7 @@ const ManageSingleProd = ({ product, refetch, countProducts }) => {
                 .then(data => console.log(data))
         }
         // if (confirm) {
-        //     fetch(`https://desolate-reef-98176.herokuapp.com/abc`, {
+        //     fetch(`https://fashion-warehouse-server.onrender.com/abc`, {
         //         method: 'POST',
         //         headers: {
         //             'content-type': 'application/json'

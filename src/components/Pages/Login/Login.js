@@ -12,6 +12,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
     const handleSubmit = event => {
         event.preventDefault();
         const email = event.target.email.value;
@@ -20,6 +21,7 @@ const Login = () => {
     }
     // login action
     const location = useLocation();
+
     let from = location.state?.from?.pathname || '/home';
     useEffect(() => {
         if (user) {

@@ -5,7 +5,7 @@ import Loading from './Loading';
 
 const ManageProducts = () => {
     const { isLoading, data, refetch } = useQuery('repoData', () =>
-        fetch('https://desolate-reef-98176.herokuapp.com/products').then(res =>
+        fetch('https://fashion-warehouse-server.onrender.com/products').then(res =>
             res.json()
         )
     )

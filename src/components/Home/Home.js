@@ -13,7 +13,7 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const [totalProducts, setTotalProducts] = useState([]);
     useEffect(() => {
-        fetch('https://desolate-reef-98176.herokuapp.com/products')
+        fetch('https://fashion-warehouse-server.onrender.com/products')
             .then(res => res.json())
             .then(data => setTotalProducts(data))
     }, [])
